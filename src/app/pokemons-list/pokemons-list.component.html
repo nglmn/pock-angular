@@ -1,0 +1,17 @@
+<div class="container">
+  <ul class="pokemons-list">
+    <li *ngFor="let pokemon of pokemonsArray">
+      <p (mouseenter)="onShowPokemonInfo(pokemon.url)">{{ pokemon.name }}</p>
+    </li>
+  </ul>
+
+  <div class="card" *ngIf="pokemonName">
+    <p class="name">{{ pokemonName }}</p>
+    <ul>
+      <li *ngFor="let character of pokemonCharacter" class="character-list">
+        <p>{{ character.characteristicName }}:</p>
+        <p>{{ character.value }}</p>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.card{
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.096);
+    border-radius: 8px;
+    margin-left: 40px;
+    width: 100%;
+    height: 100%;
+}
+.name{
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.character-list{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.pokemons-list{
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(64, 64, 65, 0.062);
+}
+
+ul{ 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    list-style: none;
+    font-size: 20px;
+    transition: 250ms all ease;
+    cursor: pointer;
+}
+p{
+    margin: 0;
+}
+li:hover{
+    color: rgb(24, 143, 211);
+}

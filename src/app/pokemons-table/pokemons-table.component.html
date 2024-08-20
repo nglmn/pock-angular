@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>HP</th>
+      <th>Attack</th>
+      <th>Defense</th>
+      <th>Special Attack</th>
+      <th>Special Defense</th>
+      <th>Speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pokemon of pokemonsList">
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.statistics.hp }}</td>
+      <td>{{ pokemon.statistics.attack }} PH</td>
+      <td>{{ pokemon.statistics.defense }} PH</td>
+      <td>{{ pokemon.statistics["special-attack"] }} PH</td>
+      <td>{{ pokemon.statistics["special-defense"] }} PH</td>
+      <td>{{ pokemon.statistics.speed }} km/h</td>
+    </tr>
+  </tbody>
+</table>

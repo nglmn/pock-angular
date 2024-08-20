@@ -1,0 +1,9 @@
+<app-pokemons-table
+  *ngIf="pokemons"
+  [pokemonsList]="pokemons"
+></app-pokemons-table>
+
+<app-pokemons-list
+  *ngIf="responseData"
+  [pokemonsArray]="responseData"
+></app-pokemons-list>
