@@ -42,6 +42,7 @@ li{
 }
 p{
     margin: 0;
+    transition: 250ms all ease;
 }
 li:hover{
     color: rgb(24, 143, 211);
