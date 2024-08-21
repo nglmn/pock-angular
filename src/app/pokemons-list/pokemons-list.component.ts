@@ -1,6 +1,13 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
-import { PokemonsSummary } from '../pokemons-data/pokemons-data.interface';
+import { Component, Input } from '@angular/core';
+import {
+  InputStatistic,
+  PokemonsSummary,
+  Statistics,
+  StatName,
+} from '../pokemons-data/pokemons-data.interface';
 import { HttpClient } from '@angular/common/http';
+import { PokemonData } from '../pokemon-info/pokemon-info.interface';
+import { PokemonService } from '../services/pokemon-service.service';
 
 @Component({
   selector: 'app-pokemons-list',
@@ -8,37 +15,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './pokemons-list.component.scss',
 })
 export class PokemonsListComponent {
-  @Input() pokemonsArray: PokemonsSummary[] = [];
-  public statistic: any;
-  public pokemonInfoData: any = [];
-  public pokemonName: string = '';
-  public pokemonCharacter: any = [];
+  @Input() pokemons: PokemonsSummary[] = [];
+  public selectedPokemon: PokemonData | undefined;
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    private pokemonService: PokemonService
+  ) {}
 
   onShowPokemonInfo(url: string) {
-    this.http.get(url).subscribe((response) => {
-      this.statistic = response;
-
-      this.pokemonInfoData = this.getCharacteristicPokemon(
-        this.statistic.stats
-      );
-
-      this.pokemonName = this.statistic.name;
-      this.pokemonCharacter = this.pokemonInfoData;
+    this.pokemonService.getOnePokemonData(url).subscribe((response: any) => {
+      const pokemonStatistics = this.pokemonService.adaptStat(response.stats);
+      this.selectedPokemon = { name: response.name, pokemonStatistics };
     });
-  }
-
-  getCharacteristicPokemon(statisticItem: any) {
-    const resultStatisticArray: any = [];
-
-    statisticItem.forEach((item: any) => {
-      resultStatisticArray.push({
-        characteristicName: item.stat.name,
-        value: item.base_stat,
-      });
-    });
-
-    return resultStatisticArray;
   }
 }

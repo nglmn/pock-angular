@@ -8,6 +8,7 @@ import { PokemonsDataComponent } from './pokemons-data/pokemons-data.component';
 import { PokemonsTableComponent } from './pokemons-table/pokemons-table.component';
 import { AppComponent } from './app.component';
 import { PokemonsListComponent } from './pokemons-list/pokemons-list.component';
+import { PokemonInfoComponent } from './pokemon-info/pokemon-info.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PokemonsListComponent } from './pokemons-list/pokemons-list.component';
     PokemonsTableComponent,
     PokemonsDataComponent,
     PokemonsListComponent,
+    PokemonInfoComponent,
   ],
   imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule],
   providers: [],
