@@ -2,6 +2,7 @@
   <ul class="pokemons-list">
     <li *ngFor="let pokemon of pokemons">
       <p (click)="onShowPokemonInfo(pokemon.url)">{{ pokemon.name }}</p>
+      <button (click)="onShowLocations(pokemon.url)">Location</button>
     </li>
   </ul>
 
