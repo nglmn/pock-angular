@@ -8,8 +8,8 @@ import {
   PokemonsSummary,
 } from './pokemons-data.interface';
 import { HttpClient } from '@angular/common/http';
-import data from '../../../data.json';
-import { PokemonService } from '../services/pokemon-service.service';
+import data from '../../pokemons-list.json';
+import { PokemonService } from '../../pokemon-service.service';
 
 @Component({
   selector: 'app-pokemons-data',
@@ -18,7 +18,6 @@ import { PokemonService } from '../services/pokemon-service.service';
 })
 export class PokemonsDataComponent implements OnInit {
   public pokemons: Pokemon[] = [];
-  public linkApi: string = 'https://pokeapi.co/api/v2/pokemon/';
   public responseData: PokemonsSummary[] | undefined;
 
   constructor(

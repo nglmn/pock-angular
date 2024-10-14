@@ -1,25 +1,27 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CommonModule } from '@angular/common';
-import { PokemonsDataComponent } from './pokemons-data/pokemons-data.component';
-import { PokemonsTableComponent } from './pokemons-table/pokemons-table.component';
 import { AppComponent } from './app.component';
-import { PokemonsListComponent } from './pokemons-list/pokemons-list.component';
-import { PokemonInfoComponent } from './pokemon-info/pokemon-info.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PokemonsModule } from './pages/pokemons/pokemons.module';
+import { HogwardsModule } from './pages/hogwards/hogwards.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PokemonsTableComponent,
-    PokemonsDataComponent,
-    PokemonsListComponent,
-    PokemonInfoComponent,
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    PokemonsModule,
+    HogwardsModule,
   ],
-  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

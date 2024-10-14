@@ -1,0 +1,8 @@
+<nav>
+  <ul>
+    <li *ngFor="let school of schoolNames$ | async">
+      <a [routerLink]="['/hogwards/', school | lowercase]">{{ school }}</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
