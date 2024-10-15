@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { HogwardsComponent } from './pages/hogwards/hogwards.component';
-import { PokemonsComponent } from './pages/pokemons/pokemons.component';
-import { StudentsListComponent } from './pages/hogwards/components/students-list/students-list.component';
-import { SchoolNamesListComponent } from './pages/hogwards/components/school-names-list/school-names-list.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'pokemons',
-    component: PokemonsComponent,
+    loadChildren: () =>
+      import('../app/pages/pokemons/pokemons.module').then(
+        (m) => m.PokemonsModule
+      ),
   },
   {
     path: 'hogwards',
-    component: HogwardsComponent,
-    children: [{ path: ':school', component: StudentsListComponent }],
+    loadChildren: () =>
+      import('../app/pages/hogwards/hogwards.module').then(
+        (m) => m.HogwardsModule
+      ),
   },
   { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];

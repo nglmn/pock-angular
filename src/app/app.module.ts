@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonsModule } from './pages/pokemons/pokemons.module';
 import { HogwardsModule } from './pages/hogwards/hogwards.module';
+import { StudentsListComponent } from './pages/hogwards/components/students-list/students-list.component';
 
 @NgModule({
   declarations: [AppComponent],

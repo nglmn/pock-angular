@@ -5,7 +5,14 @@ import { PokemonsDataComponent } from './components/pokemons-data/pokemons-data.
 import { PokemonsListComponent } from './components/pokemons-list/pokemons-list.component';
 import { PokemonInfoComponent } from './components/pokemon-info/pokemon-info.component';
 import { PokemonsComponent } from './pokemons.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: PokemonsComponent,
+  },
+];
 @NgModule({
   declarations: [
     PokemonsComponent,
@@ -14,7 +21,7 @@ import { PokemonsComponent } from './pokemons.component';
     PokemonsListComponent,
     PokemonInfoComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [],
 })
 export class PokemonsModule {}

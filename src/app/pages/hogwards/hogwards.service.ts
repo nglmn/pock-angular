@@ -9,18 +9,25 @@ import { ActivatedRoute } from '@angular/router';
 export class HogwardsService {
   constructor() {}
 
-  uniqueSchoolNames: any;
+  filteredStudents: {
+    gender: string;
+    age: number;
+    alive: boolean;
+    relationToHarryPotter: string;
+    house: string;
+    specialAbility: string;
+  }[] = [];
 
-  students$: any;
-
-  studentsData$ = of(students);
+  getStudents() {
+    return of(students);
+  }
 
   getHogwardsSchools() {
-    return this.studentsData$.pipe(
+    return this.getStudents().pipe(
       map((schoolName) => {
         const allSchoolNames = schoolName.map((student: any) => student.house);
-        this.uniqueSchoolNames = [...new Set(allSchoolNames)];
-        return this.uniqueSchoolNames;
+        const uniqueSchoolNames = [...new Set(allSchoolNames)];
+        return uniqueSchoolNames;
       })
     );
   }
