@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HogwardsService } from '../../hogwards.service';
-import { map, switchMap } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-school-names-list',
@@ -10,7 +10,7 @@ import { map, switchMap } from 'rxjs';
 export class SchoolNamesListComponent implements OnInit {
   constructor(private hogwardsService: HogwardsService) {}
 
-  public schoolNames$: any;
+  public schoolNames$!: Observable<string[]>;
 
   ngOnInit(): void {
     this.schoolNames$ = this.hogwardsService.getHogwardsSchools();

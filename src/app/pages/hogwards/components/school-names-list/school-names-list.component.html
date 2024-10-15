@@ -1,8 +1,16 @@
-<nav>
+<!-- <nav>
   <ul>
     <li *ngFor="let school of schoolNames$ | async">
       <a [routerLink]="['/hogwards/', school | lowercase]">{{ school }}</a>
     </li>
+  </ul>
+</nav> -->
+<nav>
+  <ul>
+    <li><a routerLink="/hogwards/ravenclaw">Ravenclaw</a></li>
+    <li><a routerLink="/hogwards/hufflepuff">Hufflepuff</a></li>
+    <li><a routerLink="/hogwards/slytherin">Slytherin</a></li>
+    <li><a routerLink="/hogwards/gryffindor">Gryffindor</a></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
