@@ -1,7 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { HogwardsService } from '../../hogwards.service';
 import { map, Observable, Observer } from 'rxjs';
 import { StudentsListComponent } from '../students-list/students-list.component';
+import { Student } from '../../hogwards-interfaces';
 
 @Component({
   selector: 'app-gryffindor-school',
@@ -9,20 +10,22 @@ import { StudentsListComponent } from '../students-list/students-list.component'
   styleUrl: './gryffindor-school.component.scss',
 })
 export class GryffindorSchoolComponent implements OnInit {
-  constructor(private hogwardsServicee: HogwardsService) {}
+  constructor(private hogwardsService: HogwardsService) {}
+
+  filteredStudentsList: any;
 
   ngOnInit(): void {
-    this.hogwardsServicee
+    this.hogwardsService
       .getStudents()
       .pipe(
-        map((students) => {
-          return students.filter((student) => {
+        map((students: Student[]): Student[] => {
+          return students.filter((student: Student): boolean => {
             return student.house === 'Gryffindor';
           });
         })
       )
-      .subscribe((res) => {
-        this.hogwardsServicee.filteredStudents = res;
+      .subscribe((res: Student[]): void => {
+        this.filteredStudentsList = res;
       });
   }
 }
