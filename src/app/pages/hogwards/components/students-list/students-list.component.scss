@@ -1,0 +1,17 @@
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+li{
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(44, 44, 44, 0.13);
+    transition: 250ms all ease;
+    cursor: pointer;
+}
+li:hover{
+    box-shadow: 1px 1px 7px rgba(44, 44, 44, 0.13);
+    background-color: rgb(253, 253, 253);
+}

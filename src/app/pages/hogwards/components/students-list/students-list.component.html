@@ -1,5 +1,8 @@
 <ul>
-  <li *ngFor="let student of selectedSchoolStudents">
+  <li
+    *ngFor="let student of selectedSchoolStudents"
+    (click)="editStudent(student)"
+  >
     {{ student.name }}
   </li>
 </ul>

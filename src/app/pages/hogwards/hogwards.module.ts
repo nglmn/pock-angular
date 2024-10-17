@@ -8,6 +8,11 @@ import { RavenclawSchoolComponent } from './components/ravenclaw-school/ravencla
 import { HufflepuffSchoolComponent } from './components/hufflepuff-school/hufflepuff-school.component';
 import { SlytherinSchoolComponent } from './components/slytherin-school/slytherin-school.component';
 import { GryffindorSchoolComponent } from './components/gryffindor-school/gryffindor-school.component';
+import { EditStudentModalComponent } from './modals/edit-student-modal/edit-student-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -48,8 +53,17 @@ const routes: Routes = [
     HufflepuffSchoolComponent,
     SlytherinSchoolComponent,
     RavenclawSchoolComponent,
+    EditStudentModalComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [],
 })
 export class HogwardsModule {}

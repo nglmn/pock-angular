@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
-import students from './hogwards-students.json';
+import { studentsWithId } from './hogwards-students';
 import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class HogwardsService {
   }[] = [];
 
   getStudents() {
-    return of(students);
+    return of(studentsWithId);
   }
 
   getHogwardsSchools() {
