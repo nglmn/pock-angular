@@ -287,5 +287,3 @@ export const studentsWithId = students.map(
     return { ...student, id: index + 1 };
   }
 );
-
-console.log(studentsWithId);
